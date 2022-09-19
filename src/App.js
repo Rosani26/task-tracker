@@ -2,10 +2,6 @@ import { useState, useEffect } from "react"
 import Header from "./components/Header";
 import Tasks from "./components/Tasks"
 import AddTask from "./components/AddTask";
-import Footer from "./components/Footer";
-import about from "./components/About";
-import {BrowserRouter as Router, Route } from 'react-router-dom'
-
 
   function App() {
     const [showAddTask, setShowAddTask] = useState(false)
@@ -83,12 +79,11 @@ import {BrowserRouter as Router, Route } from 'react-router-dom'
     setTasks(
       tasks.map((task) => 
       task.od === id? {...task, reminder : 
-        !task.reminder } : task
+        data.reminder } : task
 )
 )
       }
   return (
-    <Route>
     <div className="container">
      <Header onAdd={() => setShowAddTask(!showAddTask)} 
      showAdd={showAddTask}
@@ -103,10 +98,9 @@ import {BrowserRouter as Router, Route } from 'react-router-dom'
      ):(
       'No Tasks to show'
      )}
-     <Route path='/about' component={About} />
-     <Footer />  
+      
     </div>
-    </Route>
+  
   )
 }
 
