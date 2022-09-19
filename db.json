@@ -7,7 +7,15 @@
       "email": "max.müller@gmail.com",
       "reminder": false
       
-      }
+      },
+
+      {
+        "id": 2,
+        "text": "Appointment",
+        "email": "max.müller@gmail.com",
+        "reminder": false
+        
+        }
      
     
   ]

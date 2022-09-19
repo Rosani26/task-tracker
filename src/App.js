@@ -26,7 +26,7 @@ import AddTask from "./components/AddTask";
 
      //fetch data
      const fetchTask = async () =>{
-      const res = await fetch('http://localhost:3000/tasks/${id}')
+      const res = await fetch(`http://localhost:3000/tasks/${id}`)
       const data = await res.json()
 
       return data
@@ -54,7 +54,7 @@ import AddTask from "./components/AddTask";
 
   //Tasks löschen
   const deleteTask =async(id) => {
-    await fetch(`http://localhost:3000/tasks/$ {id}`,{
+    await fetch(`http://localhost:3000/tasks/${id}`,{
       method: 'DELETE',
     })
     setTasks(tasks.filter((task) => task.id !== id))
@@ -66,7 +66,7 @@ import AddTask from "./components/AddTask";
     const updTask = {...taskToToggle,
     reminder: !taskToToggle.reminder} 
 
-    const res = await fetch(`http://localhost:3000/tasks/$ {id}`, {
+    const res = await fetch(`http://localhost:3000/tasks/${id}`, {
       method:'PUT',
       headers: {
         'Content-type': 'application/json'
