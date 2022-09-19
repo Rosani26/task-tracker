@@ -14,19 +14,19 @@ import AddTask from "./components/AddTask";
       }
   ])
 
-  //Add Task
+  //Task Hinzufügen
   const addTask = (task) => {
     const id = Math.floor(Math.random()* 10000) + 1
     const newTask = { id, ...task}
     setTasks([...tasks, newTask])
   }
 
-  //Delete Task
+  //Tasks löschen
   const deleteTask =(id) => {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
-  //Toggle Reminder
+  //Erinerung
   const toggleReminder =(id) =>
     setTasks(
       tasks.map((task) => 

@@ -20,10 +20,6 @@ Header.propTypes = {
   title: propTypes.string.isRequired,
 }
 
-//Css in Js
-/* const headingStyle = {
-  color: 'red', 
-  backgroundColor: 'black'
-} */
+
 
 export default Header

@@ -15,11 +15,12 @@ const AddTask = ({ onAdd }) => {
       return
     }
 
-    onAdd({ text, day, reminder })
+    onAdd({ text, day, reminder, Email })
 
     setText('')
     setDay('')
     setReminder(false)
+    setMail('')
   }
 
   return (
