@@ -9,6 +9,7 @@ import AddTask from "./components/AddTask";
       {
       id: 1,
       text: 'Doctors Appointment',
+      email: 'max.müller@gmail.com',
       reminder: false,
       
       }

@@ -5,7 +5,7 @@ const AddTask = ({ onAdd }) => {
   const [text, setText] = useState('')
   const [day, setDay] = useState('')
   const [reminder, setReminder] = useState(false)
-  const [Email, setMail] = useState('')
+  const [email, setMail] = useState('')
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -15,7 +15,7 @@ const AddTask = ({ onAdd }) => {
       return
     }
 
-    onAdd({ text, day, reminder, Email })
+    onAdd({ text, day, reminder, email })
 
     setText('')
     setDay('')
@@ -48,7 +48,7 @@ const AddTask = ({ onAdd }) => {
         <input
           type='text'
           placeholder='E-mail'
-          value={text}
+          value={email}
           onChange={(e) => setMail(e.target.value)}
         />
       </div>
