@@ -29,7 +29,7 @@ const AddTask = ({ onAdd }) => {
       <div className='form-control'>
         <label>Task</label>
         <input
-          type='title'
+          type='text'
           placeholder='Add Task'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -38,7 +38,7 @@ const AddTask = ({ onAdd }) => {
       <div className='form-control'>
         <label>Day & Time</label>
         <input
-          type='title'
+          type='text'
           placeholder='Add Day & Time'
           value={day}
           onChange={(e) => setDay(e.target.value)}
@@ -47,7 +47,7 @@ const AddTask = ({ onAdd }) => {
       <div className='form-control'>
         <label>E-mail</label>
         <input
-          type='title'
+          type='text'
           placeholder='E-mail'
           value={email}
           onChange={(e) => setMail(e.target.value)}

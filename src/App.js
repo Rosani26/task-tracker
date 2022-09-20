@@ -3,12 +3,14 @@ import Header from "./components/Header";
 import Tasks from "./components/Tasks"
 import AddTask from "./components/AddTask";
 import React from 'react'
-
-/* import { BrowserRouter, Route, Switch} from 'react-router-dom'
-import Login from "./components/Login" */
-  function App() {
+ 
+   function App() {
     const [showAddTask, setShowAddTask] = useState(false)
     const [tasks, setTasks ] = useState([ ])
+
+     //Password
+    
+    
 
     useEffect(() => {
       const getTasks = async () => {
@@ -19,10 +21,8 @@ import Login from "./components/Login" */
       getTasks()
     }, [])
 
-  /*   //Password
-    <BrowserRouter>
-    <Login />
-    </BrowserRouter> */
+    
+  
 
     //fetch data
     const fetchTasks = async () =>{
@@ -54,6 +54,8 @@ import Login from "./components/Login" */
 
       setTasks([...tasks, data])
     }
+    //Task bearbeiten
+
 
   //Tasks löschen
   const deleteTask =async(id) => {
@@ -87,6 +89,7 @@ import Login from "./components/Login" */
 )
       }
   return (
+    
     <div className="container">
      <Header onAdd={() => setShowAddTask(!showAddTask)} 
      showAdd={showAddTask}
@@ -101,8 +104,8 @@ import Login from "./components/Login" */
      ):(
       'No Tasks to show'
      )}
-      
     </div>
+    
   
   )
 }

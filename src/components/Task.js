@@ -1,7 +1,7 @@
 import React from 'react'
 import{ FaTimes } from 'react-icons/fa'
 
-const Task = ({ task, onDelete }) => {
+const Task = ({ task, onDelete, onChange }) => {
   return (
     <div className= {`task ${task.completed ? 'completed' : ''}`} onDoubleClick={() => ontoggle(task.id)}>
         <h3>

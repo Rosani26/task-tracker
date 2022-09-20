@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react'
 import React, { useState } from 'react'
+
 
 const Login = (onAdd) => {
     const[password, setPassword] = useState('')
@@ -24,8 +24,8 @@ const Login = (onAdd) => {
         <input
           type='text'
           placeholder='Password'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
       <input type='submit' value='Save' className='btn btn-block' />
