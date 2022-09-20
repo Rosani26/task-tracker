@@ -2,21 +2,11 @@
   "tasks": [
     
     {
-      "id": 1,
-      "text": "Doctors Appointment",
-      "email": "max.müller@gmail.com",
-      "reminder": false
+      "title": "Termin"
       
-      },
+     }
 
-      {
-        "id": 2,
-        "text": "Appointment",
-        "email": "max.müller@gmail.com",
-        "reminder": false
-        
-        }
-     
+      
     
   ]
 

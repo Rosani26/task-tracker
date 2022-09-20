@@ -3,24 +3,24 @@ import { useState } from 'react'
 import React from 'react'
 
 const AddTask = ({ onAdd }) => {
-  const [text, setText] = useState('')
+  const [title, setTitle] = useState('')
   const [day, setDay] = useState('')
-  const [reminder, setReminder] = useState(false)
+  const [completed, setCompleted] = useState(false)
   const [email, setMail] = useState('')
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    if (!text) {
+    if (!title) {
       alert('Please add a task')
       return
     }
 
-    onAdd({ text, day, reminder, email })
+    onAdd({ title, day, completed, email })
 
-    setText('')
+    setTitle('')
     setDay('')
-    setReminder(false)
+    setCompleted(false)
     setMail('')
   }
 
@@ -29,16 +29,16 @@ const AddTask = ({ onAdd }) => {
       <div className='form-control'>
         <label>Task</label>
         <input
-          type='text'
+          type='title'
           placeholder='Add Task'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </div>
       <div className='form-control'>
         <label>Day & Time</label>
         <input
-          type='text'
+          type='title'
           placeholder='Add Day & Time'
           value={day}
           onChange={(e) => setDay(e.target.value)}
@@ -47,19 +47,19 @@ const AddTask = ({ onAdd }) => {
       <div className='form-control'>
         <label>E-mail</label>
         <input
-          type='text'
+          type='title'
           placeholder='E-mail'
           value={email}
           onChange={(e) => setMail(e.target.value)}
         />
       </div>
       <div className='form-control form-control-check'>
-        <label>Set Reminder</label>
+        <label>Completed</label>
         <input
           type='checkbox'
-          checked={reminder}
-          value={reminder}
-          onChange={(e) => setReminder(e.currentTarget.checked)}
+          checked={completed}
+          value={completed}
+          onChange={(e) => setCompleted(e.currentTarget.checked)}
         />
 
       </div>

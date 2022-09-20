@@ -2,7 +2,10 @@ import { useState, useEffect } from "react"
 import Header from "./components/Header";
 import Tasks from "./components/Tasks"
 import AddTask from "./components/AddTask";
+import React from 'react'
 
+/* import { BrowserRouter, Route, Switch} from 'react-router-dom'
+import Login from "./components/Login" */
   function App() {
     const [showAddTask, setShowAddTask] = useState(false)
     const [tasks, setTasks ] = useState([ ])
@@ -16,6 +19,11 @@ import AddTask from "./components/AddTask";
       getTasks()
     }, [])
 
+  /*   //Password
+    <BrowserRouter>
+    <Login />
+    </BrowserRouter> */
+
     //fetch data
     const fetchTasks = async () =>{
       const res = await fetch('http://localhost:3000/tasks')
@@ -24,8 +32,8 @@ import AddTask from "./components/AddTask";
       return data
     }
 
-     //fetch data
-     const fetchTask = async () =>{
+     //fetch Tasks
+     const fetchTask = async (id) =>{
       const res = await fetch(`http://localhost:3000/tasks/${id}`)
       const data = await res.json()
 
@@ -34,7 +42,7 @@ import AddTask from "./components/AddTask";
 
   //Task Hinzufügen
     const addTask = async (task) => {
-      const res = await fetch('http://localhost:3000/tasks/', {
+      const res = await fetch('http://localhost:3000/tasks', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json'
@@ -46,25 +54,20 @@ import AddTask from "./components/AddTask";
 
       setTasks([...tasks, data])
     }
-    /*const addTask = (task) => {
-    const id = Math.floor(Math.random()* 10000) + 1
-    const newTask = { id, ...task}
-    setTasks([...tasks, newTask]) 
-  }*/
 
   //Tasks löschen
   const deleteTask =async(id) => {
-    await fetch(`http://localhost:3000/tasks/${id}`,{
+    await fetch(`http://localhost:3000/task/${id}`,{
       method: 'DELETE',
     })
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
   //Erinerung
-  const toggleReminder = async (id) =>{
+  const toggleCompleted = async (id) =>{
     const taskToToggle = await fetchTask(id)
     const updTask = {...taskToToggle,
-    reminder: !taskToToggle.reminder} 
+    completed: !taskToToggle.completed} 
 
     const res = await fetch(`http://localhost:3000/tasks/${id}`, {
       method:'PUT',
@@ -78,8 +81,8 @@ import AddTask from "./components/AddTask";
 
     setTasks(
       tasks.map((task) => 
-      task.od === id? {...task, reminder : 
-        data.reminder } : task
+      task.od === id? {...task, completed : 
+        data.completed } : task
 )
 )
       }
@@ -94,7 +97,7 @@ import AddTask from "./components/AddTask";
      />
      {tasks.length > 0?(<Tasks tasks={tasks} 
      onDelete={deleteTask}
-     onToggle={toggleReminder} />
+     onToggle={toggleCompleted} />
      ):(
       'No Tasks to show'
      )}
